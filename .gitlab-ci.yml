@@ -1,0 +1,13 @@
+build:
+  script:
+    - git submodule init
+    - git submodule update
+    - ./compile.sh
+    - ./build/multithreaded_observer_test
+  after_script:
+    - cd /media/storage/gitlab/
+    - sudo rm -rf Multithreaded_Observer
+    - git clone http://192.168.109.15/root/Multithreaded_Observer.git
+    - cd Multithreaded_Observer
+    - git submodule init
+    - git submodule update
