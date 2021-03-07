@@ -10,7 +10,7 @@ pipeline {
 
         stage('build') {
             steps {
-                sh 'bash compile.sh'
+                sh 'bash compile.sh -DTEST=true'
             }
         }
         

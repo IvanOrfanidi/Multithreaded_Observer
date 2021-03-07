@@ -2,7 +2,7 @@ build:
   script:
     - git submodule init
     - git submodule update
-    - ./compile.sh
+    - ./compile.sh -DTEST=true
     - ./build/multithreaded_observer_test
   after_script:
     - cd /media/storage/gitlab/

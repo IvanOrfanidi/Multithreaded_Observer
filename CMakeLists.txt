@@ -37,7 +37,7 @@ set(SOURCES
 
 # Source test files
 set(TEST_SOURCES
-    test/observer_test.cpp
+    test/source/observer_test.cpp
     include/observer.h
 )
 
@@ -52,16 +52,17 @@ endif(NOT CMAKE_BUILD_TYPE)
 
 # Compiling target
 add_executable(${PROJECT_NAME} ${SOURCES})
-add_executable(${PROJECT_NAME}_test ${TEST_SOURCES})
 
 if(UNIX)
     find_package(Threads)
     target_link_libraries(${PROJECT_NAME} ${CMAKE_THREAD_LIBS_INIT})
 endif()
 
-# Link target
-target_link_libraries(
-    ${PROJECT_NAME}_test
-    gtest
-    gtest_main
-)
+if(TEST)
+    add_executable(${PROJECT_NAME}_test ${TEST_SOURCES})
+    target_link_libraries(
+        ${PROJECT_NAME}_test
+        gtest
+        gtest_main
+    )
+endif()
