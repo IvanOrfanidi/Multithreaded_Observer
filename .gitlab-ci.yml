@@ -6,7 +6,7 @@ build:
     - ./build/multithreaded_observer_test
   after_script:
     - cd /media/storage/gitlab/
-    - sudo rm -rf Multithreaded_Observer
+    - rm -rf Multithreaded_Observer
     - git clone http://git.home.lan/root/Multithreaded_Observer.git
     - cd Multithreaded_Observer
     - git submodule init
