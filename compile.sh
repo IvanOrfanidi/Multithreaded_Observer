@@ -1,12 +1,8 @@
 #!/bin/bash
 
-if [ -n "$1" ]
-    then
-        PARAMETER=$1
-fi
-
-mkdir -p build
+rm -r build
+mkdir build
 cd build
 
-cmake -G "Unix Makefiles" ${PARAMETER} ..
-cmake --build . -- -j4
+cmake -G "Unix Makefiles" -DTEST=true -DCMAKE_BUILD_TYPE=Release ..
+cmake --build .
