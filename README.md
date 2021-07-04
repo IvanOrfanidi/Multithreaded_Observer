@@ -9,9 +9,9 @@ git submodule add https://github.com/google/googletest.git
 ```
 
 ### Сборка с использованием CMake
-Для сборки выполнить скрипт `compile.sh` :
-
 ```sh
-./compile
+mkdir build
+cd build
+cmake -G "Unix Makefiles" -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release -DTEST=true ..
+cmake --build .
 ```
-Сборка будет установлена в папку `build`.
